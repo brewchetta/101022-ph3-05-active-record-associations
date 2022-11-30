@@ -10,6 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2022_11_30_165916) do
+
+  create_table "moons", force: :cascade do |t|
+    t.string "name"
+    t.boolean "has_water"
+    t.integer "planet_id"
+  end
+
+  create_table "planets", force: :cascade do |t|
+    t.string "name"
+    t.integer "diameter"
+    t.boolean "habitable"
+    t.float "surface_temp_k"
+    t.integer "star_id"
+  end
+
+  create_table "spaceships", force: :cascade do |t|
+    t.string "name"
+  end
+
+  create_table "stars", force: :cascade do |t|
+    t.string "name"
+  end
+
+  create_table "visits", force: :cascade do |t|
+    t.integer "planet_id"
+    t.integer "spaceship_id"
+  end
 
 end
